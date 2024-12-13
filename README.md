@@ -2,7 +2,7 @@
 
 簡單嘅腳本，用嚟糾正廣東話嘅錯字。用咗 BERT fill-mask 模型去預測正確嘅字。
 
-例子：「你呢D嘢太壞㗎！」句中嘅「D」係「啲」嘅常見同音字寫法。腳本會將佢改正做「你呢啲嘢太壞㗎！」。
+例子：「你呢D嘢壞㗎！」句中嘅「D」係「啲」嘅常見同音字寫法。腳本會將佢改正做「你呢啲嘢壞㗎！」。
 
 腳本入面定義咗一個常見嘅廣東話錯字表，有兩種糾正方法：
 
@@ -13,7 +13,7 @@
 
 A simple script to correct Cantonese typos. It is used BERT fill-mask model to predict the correct word.
 
-Here is the example:「你呢D嘢太壞㗎！」the word "D" in the sentence is a common homophonic writing of "啲". The script will correct it to「你呢啲嘢太壞㗎！」。
+Here is the example:「你呢D嘢壞㗎！」the word "D" in the sentence is a common homophonic writing of "啲". The script will correct it to「你呢啲嘢壞㗎！」。
 
 We have defined a list of common Cantonese typos in the script, there two type of corrections:
 
@@ -34,9 +34,9 @@ register_regular_typo("噖晚", "琴晚")
 
 ## How's BERT fill-mask model works?
 
-The script uses the fill-mask model to predict the correct word. The model is trained to predict the masked token in a sentence. For example, in the sentence "你呢D嘢太壞㗎！", the D in the sentence would be masked as "你呢[MASK]嘢太壞㗎！". The model will predict the probability of the candidate words for the masked token. The script will choose the word with the highest probability as the correct word, in this case, "啲".
+The script uses the fill-mask model to predict the correct word. The model is trained to predict the masked token in a sentence. For example, in the sentence "你呢D嘢壞㗎！", the D in the sentence would be masked as "你呢[MASK]嘢壞㗎！". The model will predict the probability of the candidate words for the masked token. The script will choose the word with the highest probability as the correct word, in this case, "啲".
 
-呢個腳本用 BERT fill-mask 模型去預測正確字。呢個模型係訓練去預測句子中嘅被遮掩嘅字。例如，句子「你呢D嘢太壞㗎！」中嘅 D 會被遮掩做「你呢[MASK]嘢太壞㗎！」。模型會預測候選字嘅機率，腳本會選擇機率最高嘅字作為正確字，喺呢個例子中係「啲」。
+呢個腳本用 BERT fill-mask 模型去預測正確字。呢個模型係訓練去預測句子中嘅被遮掩嘅字。例如，句子「你呢D嘢壞㗎！」中嘅 D 會被遮掩做「你呢[MASK]嘢壞㗎！」。模型會預測候選字嘅機率，腳本會選擇機率最高嘅字作為正確字，喺呢個例子中係「啲」。
 
 Here is how to define the candidate words for the fill-mask model:
 
