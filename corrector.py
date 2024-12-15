@@ -7,7 +7,8 @@ from torch.utils.data import Dataset
 
 # Use Bert's fill-mask model to fix typos
 
-pipe = pipeline("fill-mask", model="hon9kon9ize/bert-base-cantonese", device=0)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+pipe = pipeline("fill-mask", model="hon9kon9ize/bert-base-cantonese", device=device)
 
 
 class ListDataset(Dataset):
